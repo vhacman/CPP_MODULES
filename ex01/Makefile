@@ -3,29 +3,44 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        #
+#    By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 15:42:57 by vhacman           #+#    #+#              #
-#    Updated: 2025/09/01 18:30:00 by vhacman          ###   ########.fr        #
+#    Updated: 2025/09/02 14:55:27 by vhacman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= phonebook
+NAME        = phonebook
 
-CXX			= c++
+CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98 -Iincludes
 
-SRC_DIR		= src/
-OBJ_DIR		= obj/
+SRC_DIR     = src
+OBJ_DIR     = obj
 
-SRC			= $(wildcard $(SRC_DIR)*.cpp)
-OBJS		= $(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRC))
-DEPS		= $(OBJS:.o=.d)
+SRC = \
+  $(SRC_DIR)/Contact/contact.cpp \
+  $(SRC_DIR)/Contact/contact_display.cpp \
+  $(SRC_DIR)/Core/main.cpp \
+  $(SRC_DIR)/Phonebook/phonebook_contacts.cpp \
+  $(SRC_DIR)/Phonebook/phonebook_core.cpp \
+  $(SRC_DIR)/Phonebook/phonebook_display.cc \
+  $(SRC_DIR)/Phonebook/phonebook_input.cpp
 
-ART_DIR		= ART/
-ART1		= $(ART_DIR)art1
-ART2		= $(ART_DIR)art2
-ART3		= $(ART_DIR)art3
+# Converte i path src/... in obj/... e le estensioni in .o
+OBJS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC))
+OBJS := $(OBJS:.cpp=.o)
+OBJS := $(OBJS:.cc=.o)
+
+# File di dipendenze generati da -MMD -MP
+DEPS = $(OBJS:.o=.d)
+
+ART_DIR     = ART
+ART1        = $(ART_DIR)/art1
+ART2        = $(ART_DIR)/art2
+ART3        = $(ART_DIR)/art3
+
+RM          = rm -f
 
 all: $(NAME)
 
@@ -34,20 +49,24 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 	@[ -f "$(ART1)" ] && cat "$(ART1)" || true
 	@echo ""
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@mkdir -p $(dir $@)
-	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cc | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
+	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 clean:
-	@rm -f $(OBJS) $(DEPS)
+	@$(RM) $(OBJS) $(DEPS)
 	@[ -f "$(ART3)" ] && cat "$(ART3)" || true
 	@echo ""
 
 fclean: clean
-	@rm -f $(NAME)
+	@$(RM) $(NAME)
 	@rm -rf $(OBJ_DIR)
 	@[ -f "$(ART2)" ] && cat "$(ART2)" || true
 	@echo ""
@@ -55,5 +74,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
--include $(DEPS)

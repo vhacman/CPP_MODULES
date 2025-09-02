@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:35:12 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/01 19:08:06 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/02 15:08:30 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 
 static void	printBanner(void)
 {
-	std::cout << "==== PHONEBOOK ====" << std::endl;
-	std::cout << "Commands: ADD | SEARCH | EXIT" << std::endl;
+	std::cout << C_BCYAN << "==== PHONEBOOK ===="
+	          << C_RESET << std::endl;
+
+	std::cout << C_BYELLOW "Commands: "
+				<< C_CYAN << "ADD" << C_RESET << " | "
+				<< C_CYAN << "SEARCH" << C_RESET << " | "
+				<< C_CYAN << "EXIT" << C_RESET
+				<< std::endl << std::endl;
 }
 
 static bool	processCommand(PhoneBook &book, const std::string &cmd)
@@ -26,13 +32,21 @@ static bool	processCommand(PhoneBook &book, const std::string &cmd)
 		book.searchContact();
 	else if (cmd == "EXIT")
 	{
-		std::cout << "Goodbye!" << std::endl;
+		std::cout << C_BGREEN << "Goodbye!"
+		          << C_RESET << std::endl;
 		return (false);
 	}
 	else if (cmd.empty())
 		return (true);
 	else
-		std::cout << "Unknown command. Use: ADD | SEARCH | EXIT" << std::endl;
+	{
+		std::cout << C_BRED
+					<< "Unknown command. " << C_RESET
+					<< "Use: " << C_BYELLOW << "ADD" << C_RESET
+					<< " | " << C_BYELLOW << "SEARCH" << C_RESET
+					<< " | " << C_BYELLOW << "EXIT" << C_RESET
+					<< std::endl;
+	}
 	return (true);
 }
 

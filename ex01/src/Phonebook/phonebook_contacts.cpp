@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:14:26 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/02 14:59:21 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/03 10:52:44 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Contact	PhoneBook::_collectContactData(void)
 	nickName = this->_getInput(std::string(C_MAGENTA) + "Enter nickname: " + C_RESET);
 	phoneNumber = this->_getInput(std::string(C_MAGENTA) + "Enter phone number: " + C_RESET);
 	darkestSecret = this->_getInput(std::string(C_MAGENTA) + "Enter darkest secret: " + C_RESET);
-	newContact.setContact(firstName, lastName, nickName, phoneNumber, darkestSecret, this->_currIdx);
+	newContact.setContact(firstName, lastName, nickName, phoneNumber, darkestSecret, this->_currIdx + 1);
 	return (newContact);
 }
 

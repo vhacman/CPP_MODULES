@@ -1,5 +1,5 @@
-
-## Obiettivi
+## EX00
+# Obiettivi
 
 Il primo esercizio del modulo C++ ha lo scopo di introdurre concetti fondamentali della programmazione a oggetti e della gestione della memoria. L’obiettivo principale è comprendere la differenza tra:
 

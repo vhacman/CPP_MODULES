@@ -96,7 +96,6 @@ Questo esercizio ha lo scopo di introdurre l’uso di:
 Lo sviluppo del progetto si articola in più passaggi:
 
 - Classe Weapon: 
-
 Contiene un attributo privato _type di tipo std::string.
 Metodo getType() const: restituisce una const std::string& per
 accedere al tipo senza creare copie.
@@ -120,4 +119,20 @@ HumanA ha sempre un’arma, perché lavora con reference.
 
 HumanB può essere disarmato, ma può ottenere o cambiare arma durante la vita del programma.
 ---
+## Concetti chiave dimostrati
 
+- Reference: obbligatorie, non possono essere nulle, garantiscono
+stabilità del legame.
+
+- Puntatori: opzionali, possono essere riassegnati, ma richiedono
+controlli per evitare errori di dereferenziazione.
+
+- Const correctness:
+  - const & nei metodi per evitare copie inutili e proteggere l’incapsulamento.
+  - Metodi dichiarati const per distinguere le operazioni di sola lettura da quelle che modificano lo stato interno.
+
+- Associazione vs Possesso:
+  - Né HumanA né HumanB possiedono l’oggetto Weapon, ma si limitano ad associarsi a esso.
+
+- Polimorfismo statico:
+  - Entrambi implementano attack() con la stessa interfaccia, ma comportamenti diversi, senza ricorrere a ereditarietà o metodi virtuali.

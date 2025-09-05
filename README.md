@@ -87,13 +87,8 @@ Questo esercizio ha lo scopo di introdurre l’uso di:
   1. Reference: alias obbligatori e non nullabili per oggetti esistenti.
   2. Puntatori: variabili che possono contenere l’indirizzo di un oggetto o essere null.
   3. Const reference nei metodi: per restituire oggetti complessi evitando copie e senza rischi di modifica dall’esterno.
-
-Associazione vs Possesso: modellare correttamente le relazioni tra
-oggetti, distinguendo tra composizione, aggregazione e semplice associazione.
-
-L’esercizio dimostra come reference e puntatori influenzino la progettazione
-delle classi e il loro comportamento, attraverso il caso di HumanA e
-HumanB, entrambi collegati a un oggetto Weapon.
+  4. Associazione vs Possesso: modellare correttamente le relazioni tra oggetti, distinguendo tra composizione, aggregazione e semplice associazione.
+** L’esercizio dimostra come reference e puntatori influenzino la progettazione delle classi e il loro comportamento, attraverso il caso di HumanA e HumanB, entrambi collegati a un oggetto Weapon. ** 
 
 ## sviluppo
  Lo sviluppo del progetto si articola in più passaggi:

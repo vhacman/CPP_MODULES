@@ -76,6 +76,24 @@ Il progetto è stato sviluppato seguendo questi passaggi:
    - Crea un horde di 10 zombie tramite `zombieHorde(10, "Zombie")`.
    - Se l’allocazione fallisce, termina il programma.
    - Dopo l’uso, libera la memoria con `delete[]`.
+---
+
+# EX02 – HI THIS IS BRAIN
+## Pointers & References, indirizzi e valori
+
+### Obiettivi
+Questo esercizio completa il quadro iniziato con EX00/EX01 introducendo, in pratica, indirizzi di memoria, puntatori e reference. L’idea è vedere con mano che:
+
+- Un puntatore contiene l’indirizzo di un oggetto e si dereferenzia con * per ottenerne il valore.
+
+- Una reference è un alias dell’oggetto: non è null, non va dereferenziata e ha lo stesso indirizzo dell’oggetto referenziato.
+
+- Stampando indirizzi e valori, capisci subito le differenze di rappresentazione e di utilizzo.
+
+il `main` funge da laboratorio: 
+- HumanA con Weapon → sempre armato, l’arma può cambiare tipo e lui "vede" subito l’aggiornamento.
+- HumanB con Weapon → inizialmente disarmato, poi riceve un’arma e la usa, con lo stesso comportamento reattivo ai cambiamenti.
+- HumanB senza Weapon → dimostra che il puntatore può rimanere NULL e l’attacco si adatta.
 
 ---
 # EX03 – Unnecessary Violence 

@@ -83,15 +83,10 @@ Il progetto è stato sviluppato seguendo questi passaggi:
 
 ## Obiettivi
 
-Questo esercizio ha lo scopo di introdurre l’uso di:
-
-Reference: alias obbligatori e non nullabili per oggetti esistenti.
-
-Puntatori: variabili che possono contenere l’indirizzo di un oggetto o
-essere null.
-
-Const reference nei metodi: per restituire oggetti complessi evitando
-copie e senza rischi di modifica dall’esterno.
+Questo esercizio ha lo scopo di introdurre l’uso di: 
+  1. Reference: alias obbligatori e non nullabili per oggetti esistenti.
+  2. Puntatori: variabili che possono contenere l’indirizzo di un oggetto o essere null.
+  3. Const reference nei metodi: per restituire oggetti complessi evitando copie e senza rischi di modifica dall’esterno.
 
 Associazione vs Possesso: modellare correttamente le relazioni tra
 oggetti, distinguendo tra composizione, aggregazione e semplice associazione.

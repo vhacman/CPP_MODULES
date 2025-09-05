@@ -88,48 +88,36 @@ Questo esercizio ha lo scopo di introdurre l’uso di:
   2. Puntatori: variabili che possono contenere l’indirizzo di un oggetto o essere null.
   3. Const reference nei metodi: per restituire oggetti complessi evitando copie e senza rischi di modifica dall’esterno.
   4. Associazione vs Possesso: modellare correttamente le relazioni tra oggetti, distinguendo tra composizione, aggregazione e semplice associazione.
-** L’esercizio dimostra come reference e puntatori influenzino la progettazione delle classi e il loro comportamento, attraverso il caso di HumanA e HumanB, entrambi collegati a un oggetto Weapon. ** 
 
-## sviluppo
- Lo sviluppo del progetto si articola in più passaggi:
+**L’esercizio dimostra come reference e puntatori influenzino la progettazione delle classi e il loro comportamento, attraverso il caso di HumanA e HumanB, entrambi collegati a un oggetto Weapon.** 
 
-Classe Weapon:
+## Sviluppo
+
+Lo sviluppo del progetto si articola in più passaggi:
+
+- Classe Weapon: 
 
 Contiene un attributo privato _type di tipo std::string.
-
 Metodo getType() const: restituisce una const std::string& per
 accedere al tipo senza creare copie.
-
 Metodo setType(std::string newType): permette di modificare il tipo.
 
-Classe HumanA:
-
+- Classe HumanA:
 Possiede un attributo Weapon& (reference obbligatoria).
-
 Il costruttore richiede sempre un’arma valida.
-
 Metodo attack(): stampa un messaggio usando sempre l’arma,
 senza controlli aggiuntivi, perché la reference garantisce validità.
-
-Classe HumanB:
-
+- Classe HumanB:
 Possiede un attributo Weapon* (puntatore opzionale).
-
 Può essere inizialmente disarmato (nullptr).
-
 Metodo setWeapon(Weapon&): consente di assegnare un’arma in un
 secondo momento.
-
 Metodo attack(): controlla se weapon è nullptr; in caso
 positivo gestisce il caso disarmato.
-
 main.cpp:
-
 Dimostra la differenza tra HumanA e HumanB:
-
 HumanA ha sempre un’arma, perché lavora con reference.
 
-HumanB può essere disarmato, ma può ottenere o cambiare arma
-durante la vita del programma.
+HumanB può essere disarmato, ma può ottenere o cambiare arma durante la vita del programma.
 ---
 

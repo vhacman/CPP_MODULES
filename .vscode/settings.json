@@ -1,5 +1,6 @@
 {
 	"files.associations": {
+		"ostream": "cpp",
 		"array": "cpp",
 		"atomic": "cpp",
 		"bit": "cpp",
@@ -33,6 +34,7 @@
 		"tuple": "cpp",
 		"type_traits": "cpp",
 		"utility": "cpp",
+		"fstream": "cpp",
 		"initializer_list": "cpp",
 		"iosfwd": "cpp",
 		"iostream": "cpp",
@@ -40,11 +42,9 @@
 		"limits": "cpp",
 		"new": "cpp",
 		"numbers": "cpp",
-		"ostream": "cpp",
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"typeinfo": "cpp",
-		"fstream": "cpp"
+		"typeinfo": "cpp"
 	}
 }

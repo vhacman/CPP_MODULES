@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 12:27:48 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/05 13:18:26 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/06 13:46:40 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 **   with '*' to access the value.
 ** - A reference is an alias to the original variable and can be used
 **   as if it were the variable itself.
-**
 */
 int	main(){
 	std::string	String;

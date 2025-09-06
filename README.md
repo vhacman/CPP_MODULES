@@ -210,3 +210,117 @@ metodi come `find`, `erase`, `insert` e `substr`.
 * Applicazione del RAII: i file vengono chiusi automaticamente alla fine dello scope.
 
 ---
+# EX05 – Harl 2.0
+
+## Obiettivi
+
+Questo esercizio introduce l’uso dei **puntatori a funzioni membro** in C++.
+L’obiettivo è automatizzare il comportamento della classe `Harl`, che deve
+emettere diversi messaggi in base al livello di log (`DEBUG`, `INFO`,
+`WARNING`, `ERROR`) senza ricorrere a catene di `if/else if/else`.
+
+I punti chiave sono:
+
+* Definire quattro metodi privati: `debug()`, `info()`, `warning()`, `error()`.
+* Creare un metodo pubblico `complain(std::string level)` che, usando una
+  tabella di puntatori a funzioni membro, richiama direttamente il metodo
+  corrispondente al livello passato.
+* Gestire il caso di livello non valido con un messaggio di fallback.
+
+---
+
+## Sviluppo
+
+1. **Classe `Harl`:**
+
+   * Contiene i quattro metodi privati corrispondenti ai livelli.
+   * Implementa `complain(std::string level)` come interfaccia pubblica.
+   * I metodi sono privati per forzare l’uso di `complain()` come unico punto di accesso.
+
+2. **Tabella di puntatori a funzioni:**
+
+   * Si crea un array di stringhe con i nomi dei livelli.
+   * In parallelo, si definisce un array di puntatori a metodi membro
+     che punta a `debug`, `info`, `warning`, `error`.
+   * Un ciclo confronta la stringa passata con l’array dei livelli:
+     quando trova corrispondenza, invoca il metodo corretto tramite
+     `(this->*pointer)()`.
+
+3. **Programma di test (`main.cpp`):**
+
+   * Crea un’istanza di `Harl`.
+   * Chiama `complain()` con tutti i livelli validi per dimostrare il funzionamento.
+   * Chiama `complain()` con un livello non valido per verificare la gestione dell’errore.
+
+---
+
+## Concetti chiave dimostrati
+
+* **Puntatori a funzioni membro:** tecnica per associare stringhe a metodi
+  senza ricorrere a strutture condizionali annidate.
+* **Incapsulamento:** i metodi di log rimangono privati, accessibili solo
+  tramite l’interfaccia pubblica `complain()`.
+* **Polimorfismo statico:** la scelta del metodo avviene a tempo di esecuzione
+  in base al livello, senza uso di virtual o ereditarietà.
+* **Gestione input non valido:** il programma non va in errore ma risponde con
+  un messaggio guida.
+---
+
+# EX06 – Harl filter
+
+## Obiettivi
+
+Questo esercizio estende **Harl 2.0** introducendo un meccanismo di
+**filtraggio dei livelli**.
+L’obiettivo è simulare un logger più realistico: in base al livello
+passato da riga di comando, Harl deve stampare **quel livello e tutti i
+successivi** in ordine di gravità (`DEBUG`, `INFO`, `WARNING`, `ERROR`).
+
+Se il livello non è riconosciuto, il programma deve stampare un
+messaggio generico per indicare che il reclamo non rientra nei livelli
+previsti.
+
+---
+
+## Sviluppo
+
+1. **Classe `Harl`:**
+
+   * Mantiene i quattro metodi privati già visti (`debug`, `info`,
+     `warning`, `error`).
+   * Il metodo `complain(std::string level)` diventa il punto centrale
+     per selezionare il comportamento.
+
+2. **Implementazione del filtro:**
+
+   * Si crea un array con i livelli in ordine crescente di severità.
+   * Si cerca la corrispondenza tra il livello passato e l’array.
+   * Una volta trovato, vengono invocati **in cascata** tutti i metodi
+     corrispondenti dal livello selezionato fino a `ERROR`.
+
+3. **Gestione input non valido:**
+
+   * Se il livello non corrisponde a nessuno dei valori attesi,
+     viene stampato un messaggio di default:
+     `"Probably complaining about insignificant problems"`.
+
+4. **Programma di test (`main.cpp`):**
+
+   * Legge l’argomento passato da riga di comando come livello.
+   * Chiama `complain()` per stampare i messaggi filtrati.
+   * Verifica sia il caso di livelli validi che di livello sconosciuto.
+
+---
+
+## Concetti chiave dimostrati
+
+* **Filtraggio dei livelli di log:** simulazione di un logger reale,
+  con output crescente in base alla severità.
+* **Riutilizzo del codice di EX05:** uso dei puntatori a funzioni
+  membro per evitare `if/else` complessi.
+* **Gestione robusta degli input:** comportamento definito anche in
+  caso di livello non valido.
+* **Astrazione crescente:** da EX05 a EX06 si passa da un semplice
+  dispatcher a un sistema di log con filtro di severità.
+
+---

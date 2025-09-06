@@ -6,12 +6,12 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 13:37:38 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/03 15:24:11 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/06 13:46:59 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+# ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 # include <iostream>
 # include <string>

@@ -90,30 +90,30 @@ Questo esercizio completa il quadro iniziato con EX00/EX01 introducendo, in prat
 
 - Stampando indirizzi e valori, capisci subito le differenze di rappresentazione e di utilizzo.
 
-il `main` funge da laboratorio: 
+il `main` funge da laboratorio:
 - HumanA con Weapon → sempre armato, l’arma può cambiare tipo e lui "vede" subito l’aggiornamento.
 - HumanB con Weapon → inizialmente disarmato, poi riceve un’arma e la usa, con lo stesso comportamento reattivo ai cambiamenti.
 - HumanB senza Weapon → dimostra che il puntatore può rimanere NULL e l’attacco si adatta.
 
 ---
-# EX03 – Unnecessary Violence 
+# EX03 – Unnecessary Violence
 ## Pointers and References
 
 ## Obiettivi
 
-Questo esercizio ha lo scopo di introdurre l’uso di: 
+Questo esercizio ha lo scopo di introdurre l’uso di:
   1. Reference: alias obbligatori e non nullabili per oggetti esistenti.
   2. Puntatori: variabili che possono contenere l’indirizzo di un oggetto o essere null.
   3. Const reference nei metodi: per restituire oggetti complessi evitando copie e senza rischi di modifica dall’esterno.
   4. Associazione vs Possesso: modellare correttamente le relazioni tra oggetti, distinguendo tra composizione, aggregazione e semplice associazione.
 
-**L’esercizio dimostra come reference e puntatori influenzino la progettazione delle classi e il loro comportamento, attraverso il caso di HumanA e HumanB, entrambi collegati a un oggetto Weapon.** 
+**L’esercizio dimostra come reference e puntatori influenzino la progettazione delle classi e il loro comportamento, attraverso il caso di HumanA e HumanB, entrambi collegati a un oggetto Weapon.**
 
 ## Sviluppo
 
 Lo sviluppo del progetto si articola in più passaggi:
 
-- Classe Weapon: 
+- Classe Weapon:
 Contiene un attributo privato _type di tipo std::string.
 Metodo getType() const: restituisce una const std::string& per
 accedere al tipo senza creare copie.
@@ -154,3 +154,59 @@ controlli per evitare errori di dereferenziazione.
 
 - Polimorfismo statico:
   - Entrambi implementano attack() con la stessa interfaccia, ma comportamenti diversi, senza ricorrere a ereditarietà o metodi virtuali.
+
+Perfetto! Ti preparo **EX04** in forma schematica, così è coerente con EX00–EX03 che hai già fatto.
+
+---
+
+# EX04 – Sed is for losers
+
+## Obiettivi
+
+Questo esercizio introduce la gestione dei file in C++ e la manipolazione
+delle stringhe. L’obiettivo principale è:
+
+* Aprire un file di input in sola lettura e crearne uno di output in scrittura.
+* Leggere il contenuto riga per riga.
+* Cercare e sostituire tutte le occorrenze di una sottostringa `s1` con `s2`.
+* Scrivere il risultato in un nuovo file con estensione `.replace`.
+
+L’esercizio vieta l’uso diretto di `std::string::replace`, per spingere
+a implementare manualmente la logica di ricerca e sostituzione con
+metodi come `find`, `erase`, `insert` e `substr`.
+
+---
+
+## Sviluppo
+
+1. **Gestione dei file:**
+
+   * Il programma riceve tre argomenti da riga di comando: nome file, `s1`, `s2`.
+   * Usa `std::ifstream` per aprire il file di input.
+   * Crea un nuovo file di output con `std::ofstream`, aggiungendo `.replace` al nome.
+   * Controlla che i file siano aperti correttamente con `is_open()`.
+
+2. **Elaborazione del contenuto:**
+
+   * Legge il file riga per riga tramite `std::getline`.
+   * Per ogni riga, cerca le occorrenze di `s1` con `find`.
+   * Quando trova una corrispondenza, sostituisce manualmente con `s2`
+     usando combinazioni di `erase` e `insert` oppure costruendo una nuova stringa.
+   * Ripete fino a sostituire tutte le occorrenze nella riga.
+
+3. **Scrittura nel file di output:**
+
+   * Ogni riga elaborata viene scritta nel file `.replace`.
+   * Al termine, gli stream vengono chiusi (automaticamente con RAII o manualmente con `close()`).
+
+---
+
+## Concetti chiave dimostrati
+
+* Uso delle classi `std::ifstream` e `std::ofstream`.
+* Controllo e gestione degli errori nell’apertura dei file.
+* Lettura sequenziale di un file con `getline`.
+* Ricerca e sostituzione di sottostringhe senza `replace`.
+* Applicazione del RAII: i file vengono chiusi automaticamente alla fine dello scope.
+
+---

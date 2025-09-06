@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:01:40 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/03 10:28:54 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/06 14:29:08 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	Contact::displayContactRow(void) const
 **   to the first 9 characters and adds a '.'.
 ** - Otherwise, returns the string unchanged.
 */
-std::string Contact::truncateToTen(std::string text) const
+std::string	Contact::truncateToTen(std::string text) const
 {
 	if (text.length() > 10)
 		text = text.substr(0, 9) + ".";

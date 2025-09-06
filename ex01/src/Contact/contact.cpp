@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 13:38:09 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/02 14:10:20 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/06 14:29:03 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Contact::~Contact() {}
 **
 ** - index: position of the contact in the phonebook
 */
-void Contact::setContact(std::string firstName, std::string lastName,
+void	Contact::setContact(std::string firstName, std::string lastName,
 						std::string nickname, std::string phoneNumber,
 						std::string darkestSecret, int index)
 {
@@ -54,7 +54,7 @@ void Contact::setContact(std::string firstName, std::string lastName,
 ** Returns true if the contact is empty (never initialized),
 ** otherwise returns false.
 */
-bool Contact::getIfEmpty(void) const
+bool	Contact::getIfEmpty(void) const
 {
 	return (this->_isEmpty);
 }

@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 13:29:45 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/02 15:03:56 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/06 14:27:49 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <cstdlib>
 #	include "ansi_colors.hpp"
 
+/*
+**   Represents a single contact in the phonebook, storing
+**   personal information such as name, phone number, and
+**   a secret. Provides methods to set and display this data
+**   in different formats.
+*/
 class Contact {
 	private:
 		std::string	_firstName;
@@ -41,6 +47,4 @@ class Contact {
 		std::string	truncateToTen(std::string text) const;
 		bool		getIfEmpty(void) const;
 };
-
-
 #endif

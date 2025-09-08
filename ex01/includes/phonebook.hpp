@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:11:05 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/06 14:28:47 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/08 13:54:04 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ class	PhoneBook {
 		Contact		_contacts[8];
 		int			_currIdx;
 		int			_totalContacts;
-		std::string	_getInput(const std::string &prompt);
+		std::string	_getInput(const std::string &prompt, bool isPhoneNumber);
 		bool		_isValidIdx(const std::string &input, int &idx);
 		int			_readValidIdx(void);
 		void		_saveContact(const Contact &contact);
 		Contact		_collectContactData(void);
+		bool		_isValidPhoneNumber(const std::string &phoneNumber);
 
 	public:
 		PhoneBook();

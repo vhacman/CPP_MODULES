@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook_contacts.cpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:14:26 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/03 10:52:44 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/08 13:54:36 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ Contact	PhoneBook::_collectContactData(void)
 	Contact newContact;
 
 	std::cout << C_BCYAN << "Adding new contact..." << C_RESET << std::endl;
-	firstName = this->_getInput(std::string(C_MAGENTA) + "Enter first name: " + C_RESET);
-	lastName = this->_getInput(std::string(C_MAGENTA) + "Enter last name: " + C_RESET);
-	nickName = this->_getInput(std::string(C_MAGENTA) + "Enter nickname: " + C_RESET);
-	phoneNumber = this->_getInput(std::string(C_MAGENTA) + "Enter phone number: " + C_RESET);
-	darkestSecret = this->_getInput(std::string(C_MAGENTA) + "Enter darkest secret: " + C_RESET);
+	firstName = this->_getInput(std::string(C_MAGENTA) + "Enter first name: " + C_RESET, false);
+	lastName = this->_getInput(std::string(C_MAGENTA) + "Enter last name: " + C_RESET, false);
+	nickName = this->_getInput(std::string(C_MAGENTA) + "Enter nickname: " + C_RESET, false);
+	phoneNumber = this->_getInput(std::string(C_MAGENTA) + "Enter phone number: " + C_RESET, true);
+	darkestSecret = this->_getInput(std::string(C_MAGENTA) + "Enter darkest secret: " + C_RESET, false);
 	newContact.setContact(firstName, lastName, nickName, phoneNumber, darkestSecret, this->_currIdx + 1);
 	return (newContact);
 }

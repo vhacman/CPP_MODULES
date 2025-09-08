@@ -12,7 +12,7 @@
 
 NAME		= replace_program
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -MMD -MP -Iincludes
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 SRC			= src/main.cpp \
 				src/StringUtils.cpp \
@@ -22,7 +22,7 @@ SRC			= src/main.cpp \
 
 OBJ_DIR		= obj
 OBJS		= $(patsubst src/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
-DEPS		= $(OBJS:.o=.d)
+DEPS		= $(OBJS:.o)
 
 -include $(DEPS)
 

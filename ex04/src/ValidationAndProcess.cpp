@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation_and_process.cpp                         :+:      :+:    :+:   */
+/*   ValidationAndProcess.cpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 12:11:30 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/06 12:14:36 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/08 18:20:39 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,16 @@ bool	validateArguments(int ac, char **av, std::string &filename,
 */
 bool	processFile(const std::string &filename, const std::string &s1, const std::string &s2)
 {
-	std::string	actualInputFile;
 	std::string	content;
 	std::string	processedContent;
 	std::string	outfileName;
 
-	actualInputFile = findLatestReplaceFile(filename);
-	std::cout << "Using input file: " << actualInputFile << std::endl;
-	content = readFileContent(actualInputFile);
+	std::cout << "Using input file: " << filename << std::endl;
+	content = readFileContent(filename);
 	if (content.empty())
 		return (false);
 	processedContent = replaceAllOccurrences(content, s1, s2);
-	outfileName = actualInputFile + ".replace";
+	outfileName = filename + ".replace";
 	if (!writeToFile(outfileName, processedContent))
 		return (false);
 	std::cout << "File processed successfully. Output saved to: "

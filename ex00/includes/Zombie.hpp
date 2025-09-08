@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 13:37:38 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/06 13:46:59 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/08 16:06:19 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 class Zombie {
 	private:
 		std::string	_name;
+
 	public:
 		Zombie();
 		Zombie(std::string name);

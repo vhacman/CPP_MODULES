@@ -16,8 +16,8 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -MMD -MP -Iincludes
 
 SRC			= src/main.cpp \
 				src/Zombie.cpp \
-				src/randomChump.cpp \
-				src/newZombie.cpp
+				src/RandomChump.cpp \
+				src/NewZombie.cpp
 OBJ_DIR		= obj
 OBJS		= $(patsubst src/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 DEPS		= $(OBJS:.o=.d)

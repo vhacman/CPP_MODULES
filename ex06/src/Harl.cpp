@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 12:49:50 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/06 14:16:29 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/09/08 13:39:35 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	Harl::getLevelIndex(std::string level) {
 ** 4) If levelIndex is invalid, print a default message:
 **    "[ Probably complaining about insignificant problems ]".
 */
-void	Harl::complain(std::string level){
+void	Harl::complain(std::string level) {
 	int			levelIndex;
 	void		(Harl::*ptr[4])() = {
 		&Harl::debug,
@@ -107,13 +107,10 @@ void	Harl::complain(std::string level){
 	{
 		case 0:
 			(this->*ptr[0])();
-		/* fall through */
 		case 1:
 			(this->*ptr[1])();
-			/* fall through */
 		case 2:
 			(this->*ptr[2])();
-			/* fall through */
 		case 3:
 			(this->*ptr[3])();
 			break;

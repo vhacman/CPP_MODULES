@@ -15,9 +15,9 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -MMD -MP -Iincludes
 
 SRC			= src/main.cpp \
-				src/string_utils.cpp \
-				src/file_operations.cpp \
-				src/validation_and_process.cpp \
+				src/StringUtils.cpp \
+				src/FileOperations.cpp \
+				src/ValidationAndProcess.cpp \
 
 
 OBJ_DIR		= obj

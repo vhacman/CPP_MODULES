@@ -14,7 +14,9 @@ NAME		= ProgramEx01
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Iincludes
 
-SRC			= src/
+SRC			= src/main.cpp \
+				src/Fixed.cpp \
+				src/MoreTesting.cpp
 
 OBJ_DIR		= obj
 OBJS		= $(patsubst src/%.cpp,$(OBJ_DIR)/%.o,$(SRC))

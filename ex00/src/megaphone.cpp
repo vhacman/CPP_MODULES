@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:53:31 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/06 14:27:00 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/17 14:57:28 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 */
 void	printFeedbackNoise()
 {
-	std::cout << "* LOUD AND UNBEREABLE FEEDBACK NOISE *" << std::endl;
+	std::cout << "* LOUD AND UNBEAREABLE FEEDBACK NOISE *" << std::endl;
 }
 
 /*

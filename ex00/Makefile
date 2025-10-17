@@ -12,12 +12,11 @@
 
 NAME		= megaphone
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -MMD -MP
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRC			= src/megaphone.cpp
 OBJ_DIR		= obj/
 OBJS		= $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
-DEPS		= $(OBJS:.o=.d)
 
 ART_DIR		= ART/
 ART1		= $(ART_DIR)art1

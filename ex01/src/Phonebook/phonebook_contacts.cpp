@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook_contacts.cpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:14:26 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/08 13:54:36 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/16 10:19:33 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Contact	PhoneBook::_collectContactData(void)
 	std::string	nickName;
 	std::string	phoneNumber;
 	std::string	darkestSecret;
-	Contact newContact;
+	Contact		newContact;
 
 	std::cout << C_BCYAN << "Adding new contact..." << C_RESET << std::endl;
 	firstName = this->_getInput(std::string(C_MAGENTA) + "Enter first name: " + C_RESET, false);

@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 15:03:08 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/17 15:59:16 by vhacman          ###   ########.fr       */
+/*   Created: 2025/10/17 11:03:08 by vhacman           #+#    #+#             */
+/*   Updated: 2025/10/17 16:53:37 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FIXED_HPP
+#ifndef FIXED_HPP
 # define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed {
 
@@ -47,14 +48,14 @@ class Fixed {
 		bool	operator!=(Fixed const &other) const;
 
 	/* ==================== */
-	/* ARITHMETIc OPERATORS */
+	/* ARITHMETIC OPERATORS */
 	/* ==================== */
 		Fixed	operator+(Fixed const &other) const;
 		Fixed	operator-(Fixed const &other) const;
 		Fixed	operator*(Fixed const &other) const;
 		Fixed	operator/(Fixed const &other) const;
 
-	/* ==============================*/
+	/* ============================== */
 	/* INCREMENT/DECREMENT OPERATORS */
 	/* ============================= */
 		Fixed	&operator++(void);		// Pre-increment
@@ -62,9 +63,9 @@ class Fixed {
 		Fixed	&operator--(void);		// Pre-decrement
 		Fixed	operator--(int);		// Post-decrement
 
-	/* =========================*/
+	/* ========================= */
 	/* STATIC MIN/MAX FUNCTIONS */
-	/* =========================*/
+	/* ========================= */
 		static Fixed		&min(Fixed &a, Fixed &b);
 		static Fixed const	&min(Fixed const &a, Fixed const &b);
 		static Fixed		&max(Fixed &a, Fixed &b);

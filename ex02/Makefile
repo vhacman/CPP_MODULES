@@ -14,13 +14,10 @@ NAME		= ProgramEx02
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Iincludes
 
-SRC			= src/
+SRC			= src/Fixed.cpp src/main.cpp
 
 OBJ_DIR		= obj
 OBJS		= $(patsubst src/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
-DEPS		= $(OBJS:.o=.d)
-
--include $(DEPS)
 
 ART_DIR		= ART/
 ART1		= $(ART_DIR)art1

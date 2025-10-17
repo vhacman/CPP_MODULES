@@ -6,59 +6,37 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:55:52 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/17 16:19:04 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/17 17:23:29 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <cmath>
+// UGUALE AD ESERCIZIO PRECEDENTE
 
-/* ************************************************************************** */
-/*                          ORTHODOX CANONICAL FORM                           */
-/* ************************************************************************** */
-
-// Costruttore di default: inizializza il valore a 0
 Fixed::Fixed() : _fixedPointValue(0) {
-	std::cout << "Default constructor called" << std::endl;
 }
 
-// Costruttore di copia: crea una copia dell'oggetto passato
 Fixed::Fixed(Fixed const &other) : _fixedPointValue(other._fixedPointValue) {
-	std::cout << "Copy constructor called" << std::endl;
 }
 
-// Operatore di assegnazione: assegna i valori da un oggetto esistente
 Fixed	&Fixed::operator=(Fixed const &other) {
-
-	std::cout << "Copy assignment operator called" << std::endl;
-
-	if (this != &other)  // Protegge da auto-assegnazione (a = a)
+	if (this != &other)
 		_fixedPointValue = other._fixedPointValue;
 	return (*this);
 }
 
-// Distruttore: pulisce le risorse quando l'oggetto viene distrutto
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
 }
 
 /* ************************************************************************** */
 /*                        PARAMETRIC CONSTRUCTORS                             */
 /* ************************************************************************** */
 
-// Costruttore da intero: converte un int in fixed-point
-// Shift a sinistra di 8 bit = moltiplicazione per 256
-
 Fixed::Fixed(int const intValue) {
-	std::cout << "Int constructor called" << std::endl;
 	_fixedPointValue = intValue << _fractionalBits;
 }
 
-// Costruttore da float: converte un float in fixed-point
-// Moltiplica per 2^8 e arrotonda per mantenere la precisione
-
 Fixed::Fixed(float const floatValue) {
-	std::cout << "Float constructor called" << std::endl;
 	_fixedPointValue = roundf(floatValue * (1 << _fractionalBits));
 }
 
@@ -66,15 +44,9 @@ Fixed::Fixed(float const floatValue) {
 /*                          CONVERSION FUNCTIONS                              */
 /* ************************************************************************** */
 
-// Converte il valore fixed-point in float
-// Divide per 2^8 per ottenere il valore decimale reale
-
 float	Fixed::toFloat(void) const {
 	return ((float)_fixedPointValue / (1 << _fractionalBits));
 }
-
-// Converte il valore fixed-point in int
-// Shift a destra di 8 bit = divisione per 256, scarta la parte frazionaria
 
 int	Fixed::toInt(void) const {
 	return (_fixedPointValue >> _fractionalBits);
@@ -84,12 +56,10 @@ int	Fixed::toInt(void) const {
 /*                         GETTER/SETTER FUNCTIONS                            */
 /* ************************************************************************** */
 
-// Restituisce il valore grezzo (raw) senza conversione
 int	Fixed::getRawBits(void) const {
 	return (_fixedPointValue);
 }
 
-// Imposta direttamente il valore grezzo (raw)
 void	Fixed::setRawBits(int const raw) {
 	_fixedPointValue = raw;
 }
@@ -98,38 +68,27 @@ void	Fixed::setRawBits(int const raw) {
 /*                         COMPARISON OPERATORS                               */
 /* ************************************************************************** */
 
-// Confronta due Fixed: maggiore di
-bool	Fixed::operator>(Fixed const &other) const
-{
-		return (_fixedPointValue > other._fixedPointValue);
+bool	Fixed::operator>(Fixed const &other) const {
+	return (_fixedPointValue > other._fixedPointValue);
 }
 
-// Confronta due Fixed: minore di
-bool	Fixed::operator<(Fixed const &other) const
-{
+bool	Fixed::operator<(Fixed const &other) const {
 	return (_fixedPointValue < other._fixedPointValue);
 }
 
-// Confronta due Fixed: maggiore o uguale
-bool	Fixed::operator>=(Fixed const &other) const
-{
+bool	Fixed::operator>=(Fixed const &other) const {
 	return (_fixedPointValue >= other._fixedPointValue);
 }
-	// Confronta due Fixed: minore o uguale
-bool	Fixed::operator<=(Fixed const &other) const
-{
+
+bool	Fixed::operator<=(Fixed const &other) const {
 	return (_fixedPointValue <= other._fixedPointValue);
 }
 
-// Confronta due Fixed: uguale
-bool	Fixed::operator==(Fixed const &other) const
-{
+bool	Fixed::operator==(Fixed const &other) const {
 	return (_fixedPointValue == other._fixedPointValue);
 }
 
-// Confronta due Fixed: diverso
-bool	Fixed::operator!=(Fixed const &other) const
-{
+bool	Fixed::operator!=(Fixed const &other) const {
 	return (_fixedPointValue != other._fixedPointValue);
 }
 
@@ -137,7 +96,6 @@ bool	Fixed::operator!=(Fixed const &other) const
 /*                         ARITHMETIC OPERATORS                               */
 /* ************************************************************************** */
 
-// Somma due Fixed: somma diretta dei valori raw
 Fixed	Fixed::operator+(Fixed const &other) const {
 	Fixed	result;
 
@@ -145,17 +103,13 @@ Fixed	Fixed::operator+(Fixed const &other) const {
 	return (result);
 }
 
-// Sottrae due Fixed: sottrazione diretta dei valori raw
 Fixed	Fixed::operator-(Fixed const &other) const {
-
 	Fixed	result;
 
 	result.setRawBits(_fixedPointValue - other._fixedPointValue);
 	return (result);
 }
 
-// Moltiplica due Fixed: moltiplica e shift a destra per compensare il doppio scaling
-// (a * 2^8) * (b * 2^8) = (a * b) * 2^16, quindi shift >> 8 per tornare a 2^8
 Fixed	Fixed::operator*(Fixed const &other) const {
 	Fixed	result;
 
@@ -163,8 +117,6 @@ Fixed	Fixed::operator*(Fixed const &other) const {
 	return (result);
 }
 
-// Divide due Fixed: shift a sinistra prima della divisione per mantenere la precisione
-// (a * 2^8) / (b * 2^8) necessita di shift << 8 al numeratore
 Fixed	Fixed::operator/(Fixed const &other) const {
 	Fixed	result;
 
@@ -176,13 +128,11 @@ Fixed	Fixed::operator/(Fixed const &other) const {
 /*                      INCREMENT/DECREMENT OPERATORS                         */
 /* ************************************************************************** */
 
-// Pre-incremento: incrementa di epsilon (1/256) e restituisce il nuovo valore
 Fixed	&Fixed::operator++(void) {
 	_fixedPointValue++;
 	return (*this);
 }
 
-// Post-incremento: salva il vecchio valore, incrementa, restituisce il vecchio
 Fixed	Fixed::operator++(int) {
 	Fixed	temp(*this);
 
@@ -190,13 +140,11 @@ Fixed	Fixed::operator++(int) {
 	return (temp);
 }
 
-// Pre-decremento: decrementa di epsilon (1/256) e restituisce il nuovo valore
 Fixed	&Fixed::operator--(void) {
 	_fixedPointValue--;
 	return (*this);
 }
 
-// Post-decremento: salva il vecchio valore, decrementa, restituisce il vecchio
 Fixed	Fixed::operator--(int) {
 	Fixed	temp(*this);
 
@@ -208,28 +156,24 @@ Fixed	Fixed::operator--(int) {
 /*                          STATIC MEMBER FUNCTIONS                           */
 /* ************************************************************************** */
 
-// Restituisce il riferimento al più piccolo tra due Fixed (versione non-const)
 Fixed& Fixed::min(Fixed &a, Fixed &b) {
 	if (a < b)
 		return a;
 	return (b);
 }
 
-// Restituisce il riferimento al più piccolo tra due Fixed (versione const)
 Fixed const& Fixed::min(Fixed const &a, Fixed const &b) {
 	if (a < b)
 		return a;
 	return (b);
 }
 
-// Restituisce il riferimento al più grande tra due Fixed (versione non-const)
 Fixed& Fixed::max(Fixed &a, Fixed &b) {
 	if (a > b)
 		return a;
 	return (b);
 }
 
-// Restituisce il riferimento al più grande tra due Fixed (versione const)
 Fixed const& Fixed::max(Fixed const &a, Fixed const &b) {
 	if (a > b)
 		return a;
@@ -240,10 +184,7 @@ Fixed const& Fixed::max(Fixed const &a, Fixed const &b) {
 /*                        NON-MEMBER OPERATOR OVERLOAD                        */
 /* ************************************************************************** */
 
-// Overload dell'operatore <<: permette di stampare Fixed con std::cout
-// Converte in float per una rappresentazione leggibile
 std::ostream& operator<<(std::ostream &out, Fixed const &fixed) {
 	out << fixed.toFloat();
 	return (out);
 }
-

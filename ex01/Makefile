@@ -6,7 +6,7 @@
 #    By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 15:42:57 by vhacman           #+#    #+#              #
-#    Updated: 2025/09/02 14:55:27 by vhacman          ###   ########.fr        #
+#    Updated: 2025/10/17 14:58:49 by vhacman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,6 @@ SRC = \
 OBJS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC))
 OBJS := $(OBJS:.cpp=.o)
 OBJS := $(OBJS:.cc=.o)
-
-# File di dipendenze generati da -MMD -MP
-DEPS = $(OBJS:.o=.d)
 
 ART_DIR     = ART
 ART1        = $(ART_DIR)/art1

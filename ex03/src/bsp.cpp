@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:30:00 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/17 17:29:30 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 11:18:59 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 /*
 ** Funzione helper per l'algoritmo BSP
 ** Scopo: Determina da quale lato di una linea si trova un punto
-
 ** Ritorna: Il prodotto scalare (cross product) tra i due vettori
 **   - Se > 0: p1 si trova a sinistra della linea p2-p3
 **   - Se < 0: p1 si trova a destra della linea p2-p3
 **   - Se = 0: p1 si trova sulla linea p2-p3
-**
-** Utilizzo nella BSP:
 **   Se il punto si trova sempre dalla stessa parte rispetto a tutti
 **   e tre i lati del triangolo, allora è DENTRO il triangolo.
 */

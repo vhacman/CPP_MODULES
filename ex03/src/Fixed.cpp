@@ -6,12 +6,11 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:55:52 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/17 17:23:29 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 11:20:49 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-// UGUALE AD ESERCIZIO PRECEDENTE
 
 Fixed::Fixed() : _fixedPointValue(0) {
 }
@@ -28,10 +27,6 @@ Fixed	&Fixed::operator=(Fixed const &other) {
 Fixed::~Fixed() {
 }
 
-/* ************************************************************************** */
-/*                        PARAMETRIC CONSTRUCTORS                             */
-/* ************************************************************************** */
-
 Fixed::Fixed(int const intValue) {
 	_fixedPointValue = intValue << _fractionalBits;
 }
@@ -39,10 +34,6 @@ Fixed::Fixed(int const intValue) {
 Fixed::Fixed(float const floatValue) {
 	_fixedPointValue = roundf(floatValue * (1 << _fractionalBits));
 }
-
-/* ************************************************************************** */
-/*                          CONVERSION FUNCTIONS                              */
-/* ************************************************************************** */
 
 float	Fixed::toFloat(void) const {
 	return ((float)_fixedPointValue / (1 << _fractionalBits));
@@ -52,10 +43,6 @@ int	Fixed::toInt(void) const {
 	return (_fixedPointValue >> _fractionalBits);
 }
 
-/* ************************************************************************** */
-/*                         GETTER/SETTER FUNCTIONS                            */
-/* ************************************************************************** */
-
 int	Fixed::getRawBits(void) const {
 	return (_fixedPointValue);
 }
@@ -63,10 +50,6 @@ int	Fixed::getRawBits(void) const {
 void	Fixed::setRawBits(int const raw) {
 	_fixedPointValue = raw;
 }
-
-/* ************************************************************************** */
-/*                         COMPARISON OPERATORS                               */
-/* ************************************************************************** */
 
 bool	Fixed::operator>(Fixed const &other) const {
 	return (_fixedPointValue > other._fixedPointValue);
@@ -91,10 +74,6 @@ bool	Fixed::operator==(Fixed const &other) const {
 bool	Fixed::operator!=(Fixed const &other) const {
 	return (_fixedPointValue != other._fixedPointValue);
 }
-
-/* ************************************************************************** */
-/*                         ARITHMETIC OPERATORS                               */
-/* ************************************************************************** */
 
 Fixed	Fixed::operator+(Fixed const &other) const {
 	Fixed	result;
@@ -124,10 +103,6 @@ Fixed	Fixed::operator/(Fixed const &other) const {
 	return (result);
 }
 
-/* ************************************************************************** */
-/*                      INCREMENT/DECREMENT OPERATORS                         */
-/* ************************************************************************** */
-
 Fixed	&Fixed::operator++(void) {
 	_fixedPointValue++;
 	return (*this);
@@ -152,10 +127,6 @@ Fixed	Fixed::operator--(int) {
 	return (temp);
 }
 
-/* ************************************************************************** */
-/*                          STATIC MEMBER FUNCTIONS                           */
-/* ************************************************************************** */
-
 Fixed& Fixed::min(Fixed &a, Fixed &b) {
 	if (a < b)
 		return a;
@@ -179,10 +150,6 @@ Fixed const& Fixed::max(Fixed const &a, Fixed const &b) {
 		return a;
 	return (b);
 }
-
-/* ************************************************************************** */
-/*                        NON-MEMBER OPERATOR OVERLOAD                        */
-/* ************************************************************************** */
 
 std::ostream& operator<<(std::ostream &out, Fixed const &fixed) {
 	out << fixed.toFloat();

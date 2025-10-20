@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:24:50 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/12 14:51:13 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 11:16:30 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@
 
 /*
 **   Represents a fixed-point number with 8 fractional bits.
-**   Supports construction from integers or floats and
-**   conversion back to both, while maintaining encapsulation.
-**
 ** Private attributes:
-**		- _fixedPointValue:
-**			Integer storing the raw fixed-point representation.
-**
-**		- static const int _fractionalBits = 8:
-**			Number of fractional bits used for the fixed-point
-**			representation. Shared across all instances.
+**   - _fixedPointValue:
+**       Stores the raw fixed-point value as an integer.
+**   - static const int _fractionalBits = 8:
+**       Constant number of fractional bits used for the
+**       fixed-point representation. Declared static so
+**       that all instances of Fixed share the same value.
 */
 class Fixed {
 

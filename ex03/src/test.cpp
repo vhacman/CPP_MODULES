@@ -6,16 +6,12 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:54:59 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/17 16:55:28 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 11:21:29 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include "Point.hpp"
-
-/* ************************************************************************** */
-/*                            TEST FUNCTIONS                                  */
-/* ************************************************************************** */
 
 // Test 1: Verifica punti all'interno del triangolo
 static void	testPointsInside(Point const &a, Point const &b, Point const &c) {

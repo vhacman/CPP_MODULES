@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 14:30:00 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/17 16:26:15 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 11:18:25 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@ class Point {
 		Fixed const	_y;
 
 	public:
-		// Orthodox Canonical Form
 		Point();
 		Point(float const x, float const y);
 		Point(Point const &other);
 		Point	&operator=(Point const &other);
 		~Point();
 
-		// Getters
 		Fixed	getX(void) const;
 		Fixed	getY(void) const;
 };

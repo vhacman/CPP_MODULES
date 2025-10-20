@@ -6,14 +6,13 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:54:54 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/12 12:40:29 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 11:23:20 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 /*
-** main():
 ** Demonstrates the canonical form of the Fixed class by creating
 ** objects and observing constructor, copy, and assignment behavior.
 ** 1) Fixed a;

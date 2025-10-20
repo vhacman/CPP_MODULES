@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:54:54 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 11:23:20 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 13:23:33 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@
 ** 5) Print raw values:
 **		- a.getRawBits()
 **		- b.getRawBits()
-**		- c.getRawBits()
-**	Each call also prints a message from getRawBits().
-*/
+**		- c.getRawBits()*/
 int	main(void) {
 	Fixed	a;
 	Fixed	b(a);

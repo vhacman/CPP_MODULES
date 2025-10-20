@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 14:38:15 by vhacman           #+#    #+#             */
-/*   Updated: 2025/09/12 14:51:59 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 13:26:16 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void testBasicConstructors(void) {
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 }
 
-static void	runAllTests(void) {
+void	runAllTests(void) {
 	testBasicConstructors();
 	testEdgeCases();
 	testAssignmentOperator();

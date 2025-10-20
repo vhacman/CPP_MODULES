@@ -6,21 +6,33 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:30:00 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 11:18:59 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 13:40:17 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
 /*
-** Funzione helper per l'algoritmo BSP
-** Scopo: Determina da quale lato di una linea si trova un punto
-** Ritorna: Il prodotto scalare (cross product) tra i due vettori
-**   - Se > 0: p1 si trova a sinistra della linea p2-p3
-**   - Se < 0: p1 si trova a destra della linea p2-p3
-**   - Se = 0: p1 si trova sulla linea p2-p3
-**   Se il punto si trova sempre dalla stessa parte rispetto a tutti
-**   e tre i lati del triangolo, allora è DENTRO il triangolo.
+**   Calculate the cross product (signed area) to determine which side of a
+**   line a point lies on. This is the mathematical foundation of the BSP
+**   algorithm.
+**
+** Parameters:
+**   - p1: The point to test (which side of the line is it on?)
+**   - p2: First vertex of the line
+**   - p3: Second vertex of the line
+**
+** Returns: Fixed (cross product value)
+**   - Positive (> 0): p1 is on the LEFT side of line p2→p3
+**   - Negative (< 0): p1 is on the RIGHT side of line p2→p3
+**   - Zero (= 0): p1 is exactly ON the line
+**
+** Mathematical Background (2D Cross Product):
+**   The cross product of vectors v1 and v2 is calculated as: cross = (v1.x * v2.y) - (v1.x * v2.y)
+**   The sign of the result tells us the orientation:
+**   - If positive: p1 is counterclockwise from p2 (when viewed from p3)
+**   - If negative: p1 is clockwise from p2
+**   - If zero: p1 is collinear with the line p2-p3
 */
 static Fixed	sign(Point const &p1, Point const &p2, Point const &p3) {
 	Fixed diffx1;
@@ -36,27 +48,34 @@ static Fixed	sign(Point const &p1, Point const &p2, Point const &p3) {
 }
 
 /*
-** bsp - Binary Space Partitioning
+** Binary Space Partitioning (BSP)
 **
-** Determina se un punto si trova all'interno di un triangolo utilizzando
-** il metodo del prodotto vettoriale (cross product).
+** Purpose:
+**   Determine if a point lies strictly INSIDE a triangle. Points on edges
+**   or vertices are considered OUTSIDE.
 **
-** ALGORITMO:
-** 1. Calcola il prodotto vettoriale tra il punto e ciascun lato del triangolo
-** 2. Verifica se il punto giace su un bordo o vertice (valore = 0)
-** 3. Controlla se tutti i prodotti vettoriali hanno lo stesso segno
+** Parameters:
+**   - a, b, c: The three vertices of the triangle (const references).
+**   - point: The point to test (const reference).
 **
-** LOGICA:
-** - Se un punto è DENTRO il triangolo, si trova dallo STESSO LATO rispetto
-**   a tutti e tre i lati del triangolo
-** - Questo significa che tutti i prodotti vettoriali avranno lo stesso segno:
-**   * Tutti POSITIVI (orientamento antiorario)
-			OPPURE
-**   * Tutti NEGATIVI (orientamento orario)
-
-** - Se i segni sono MISTI (alcuni positivi, altri negativi), il punto è FUORI
-** - Se un valore è ZERO, il punto è su un lato o vertice → considerato FUORI
-*/
+** Returns: bool
+**   - true: The point is strictly INSIDE the triangle.
+**   - false: The point is OUTSIDE the triangle OR on its boundary.
+**
+** ALGORITHM EXPLANATION:
+**
+** Core Principle:
+**   A point is inside a triangle if and only if it is on the SAME SIDE
+**   of all three edges of the triangle.
+** Steps:
+**   1. Calculate cross product for each edge (using sign() function)
+**   2. Check if any cross product is zero (point on boundary)
+**   3. Check if all cross products have the same sign
+**
+** Important Edge Cases:
+**   - Point on vertex → returns false (on boundary)
+**   - Point on edge → returns false (on boundary)
+**   - Point exactly at same location as vertex → returns false*/
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
 	Fixed	d1;

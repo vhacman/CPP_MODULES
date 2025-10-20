@@ -6,13 +6,23 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:54:59 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 11:21:29 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 13:42:17 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include "Point.hpp"
 
+/*
+** Purpose:
+**   This file contains all test functions that validate the Binary Space
+**   Partitioning algorithm. Tests are organized into logical groups:
+**   1. Points strictly inside the triangle
+**   2. Points on triangle vertices
+**   3. Points on triangle edges
+**   4. Points outside the triangle
+**   5. Alternative triangle with negative coordinates
+**/
 // Test 1: Verifica punti all'interno del triangolo
 static void	testPointsInside(Point const &a, Point const &b, Point const &c) {
 	bool	result;

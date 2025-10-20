@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:24:50 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 12:32:37 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 13:23:52 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,6 @@ class Fixed {
 		int		toInt(void) const;
 };
 
-/* Overloads the stream insertion operator so a Fixed
-** can be printed directly. Outputs the value as a float
-** for human-readable display.
-*/
 std::ostream	&operator<<(std::ostream& out, Fixed const &fixed);
 void			testFloatConversions(void);
 void			testPrecision(void);

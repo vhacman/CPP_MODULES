@@ -6,11 +6,24 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:50:46 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/17 17:29:05 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/20 13:41:44 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+
+/*
+** Purpose:
+**   This file contains utility functions that handle all formatting and
+**   display of test results.
+**
+** Functions Provided:
+**   - printResult(): Display individual test result with pass/fail status
+**   - printSeparator(): Print horizontal line separator
+**   - printHeader(): Print formatted section header
+**   - printTriangleInfo(): Display triangle vertex coordinates
+**   - printTestGroup(): Print test group title with underline
+*/
 
 void	printResult(std::string testName, bool result, bool expected) {
 	const char*	status;

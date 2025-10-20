@@ -16,7 +16,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 SRC			= src/main.cpp \
 				src/Fixed.cpp \
-				src/MoreTesting.cpp
+				src/more_testing.cpp
 
 OBJ_DIR		= obj
 OBJS		= $(patsubst src/%.cpp,$(OBJ_DIR)/%.o,$(SRC))

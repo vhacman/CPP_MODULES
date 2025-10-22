@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:54:59 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/22 13:44:47 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 14:30:41 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,7 @@ void	testAlternativeTriangle(void) {
 	Point	b2(2.0f, -2.0f);
 	Point	c2(0.0f, 2.0f);
 
+	// Display triangle information
 	printTriangleInfo(a2, b2, c2);
 
 	// Test point at the center of the triangle - should be INSIDE

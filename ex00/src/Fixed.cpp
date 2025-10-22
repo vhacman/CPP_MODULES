@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:55:52 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 11:23:11 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 09:34:23 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,11 @@ Fixed& Fixed::operator=(const Fixed &other) {
 ** Also prints a message when called.*/
 int	Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (this-> _fixedPointValue);
+	return (this-> _fixedPointValue); // this-> oggetto in questione
 }
 
 /*
-** Sets the internal fixed-point value to 'raw'.
-** Does not print anything.*/
+** Sets the internal fixed-point value to 'raw'.*/
 void	Fixed::setRawBits(int const raw) {
 	this->_fixedPointValue = raw;
 }

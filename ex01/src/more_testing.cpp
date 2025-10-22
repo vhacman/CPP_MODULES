@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 14:49:43 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 13:28:44 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 09:47:29 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /* Create objects using different constructors:
 **	- For each object, print the floating-point value using
 **		operator<< (calls toFloat()).
-**	- Print the integer representation using toInt(), which truncates toward zero.
+**	- Print the integer representation using toInt(),
+**  which truncates toward zero.
 */
 void	testEdgeCases(void) {
 	std::cout << "\n=== Edge Cases and Boundary Tests ===\n" << std::endl;
@@ -47,8 +48,10 @@ void	testAssignmentOperator(void) {
 	Fixed	z;
 
 	std::cout << "Before assignment --> x: " << x << ", y: " << y << ", z: " << z << std::endl;
+
 	/* assignment */
 	z = y = x;
+
 	std::cout << "After assignment --> x: " << x << ", y: " << y << ", z: " << z << std::endl;
 }
 
@@ -76,11 +79,11 @@ void	testPrecision(void) {
 	Fixed	precise4(1.125f);
 	Fixed	precise5(1.0625f);
 
-	std::cout << "1.0: " << precise1 << std::endl;
-	std::cout << "1.5: " << precise2 << std::endl;
-	std::cout << "1.25: " << precise3 << std::endl;
-	std::cout << "1.125: " << precise4 << std::endl;
-	std::cout << "1.0625: " << precise5 << std::endl;
+	std::cout << "Precise1 is: " << precise1 << std::endl;
+	std::cout << "Precise2 is: " << precise2 << std::endl;
+	std::cout << "Precise3 is: " << precise3 << std::endl;
+	std::cout << "Precise4 is: " << precise4 << std::endl;
+	std::cout << "Precise5 is: " << precise5 << std::endl;
 }
 
 /*

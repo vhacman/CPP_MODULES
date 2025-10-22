@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:24:50 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 13:23:52 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 09:36:23 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,6 @@
 # include <iostream>
 # include <cmath>
 
-/*
-**   Represents a fixed-point number with 8 fractional bits.
-** Private attributes:
-**   - _fixedPointValue:
-**       Stores the raw fixed-point value as an integer.
-**   - static const int _fractionalBits = 8:
-**       Constant number of fractional bits used for the
-**       fixed-point representation. Declared static so
-**       that all instances of Fixed share the same value.
-*/
 class Fixed {
 
 	private:
@@ -49,6 +39,7 @@ class Fixed {
 };
 
 std::ostream	&operator<<(std::ostream& out, Fixed const &fixed);
+//utilities
 void			testFloatConversions(void);
 void			testPrecision(void);
 void			testAssignmentOperator(void);

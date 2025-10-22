@@ -6,7 +6,7 @@
 /*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:55:52 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 13:25:58 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 09:40:34 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,29 @@ Fixed& Fixed::operator=(const Fixed &other) {
 }
 
 /* Initializes a Fixed object from a standard integer value.
-**
-** Behavior:
 **   - Converts intValue to fixed-point format by shifting
-**     it left by _fractionalBits bits (multiplying by 2^_fractionalBits).*/
+**     it left by _fractionalBits bits (multiplying by 2^_fractionalBits).
+*/
 Fixed::Fixed(int intValue) {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixedPointValue = intValue << this->_fractionalBits;
+	int	result;
+
+	result = intValue << this->_fractionalBits;
+	this->_fixedPointValue = result;
 }
 
 /* Initializes a Fixed object from a floating-point value.
-**
-** Behavior:
 **   - Multiplies floatValue by 2^_fractionalBits to scale it
 **     into fixed-point form.
 **   - Uses roundf() to round the result to the nearest integer
-**     for accurate representation.*/
+**     for accurate representation.
+*/
 Fixed::Fixed(float floatValue) {
 	std::cout << "Float constructor called" << std::endl;
-	this->_fixedPointValue = (int)(::roundf(floatValue * (1 << this->_fractionalBits)));
+	int	result;
+
+	result = (int)(::roundf(floatValue * (1 << this->_fractionalBits)));
+	this->_fixedPointValue = result;
 }
 
 /* Returns the current raw fixed-point value (_fixedPointValue).*/
@@ -70,7 +74,10 @@ void	Fixed::setRawBits(int const raw) {
 **   - Divides _fixedPointValue by 2^_fractionalBits to restore the
 **     original floating-point scale.*/
 float	Fixed::toFloat(void) const {
-	return ((float)(this->_fixedPointValue) / (1 << Fixed::_fractionalBits));
+	float	result;
+
+	result = (float)(this->_fixedPointValue) / (1 << Fixed::_fractionalBits);
+	return (result);
 }
 
 /*
@@ -79,7 +86,10 @@ float	Fixed::toFloat(void) const {
 **   - Right-shifts _fixedPointValue by _fractionalBits bits,
 **     dividing by 2^_fractionalBits.*/
 int	Fixed::toInt(void) const {
-	return (this->_fixedPointValue >> Fixed::_fractionalBits);
+	int	result;
+
+	result = this->_fixedPointValue >> Fixed::_fractionalBits;
+	return (result);
 }
 
 /*

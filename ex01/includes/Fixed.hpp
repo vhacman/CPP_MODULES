@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:24:50 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/22 09:36:23 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 10:52:12 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,35 @@
 # include <iostream>
 # include <cmath>
 
-class Fixed {
+class	Fixed {
 
 	private:
 		int					_fixedPointValue;
 		static const int	_fractionalBits = 8;
 
 	public:
+	//OCF
 		Fixed();
 		Fixed(Fixed const &other);
 		Fixed	&operator=(Fixed const &other);
 		~Fixed();
+	//Parameterized Constructors
+		Fixed(int const intValue); //from int
+		Fixed(float const floatValue); //from float
 
-		Fixed(int const intValue);
-		Fixed(float const floatValue);
-
+	//Getter and setters 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
-
+	//converters
 		float	toFloat(void) const;
 		int		toInt(void) const;
 };
 
+//Overload of the insertion operator for output stream
 std::ostream	&operator<<(std::ostream& out, Fixed const &fixed);
-//utilities
+
+
+//Utility test functions
 void			testFloatConversions(void);
 void			testPrecision(void);
 void			testAssignmentOperator(void);

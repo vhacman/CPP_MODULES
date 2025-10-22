@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 15:03:08 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/20 11:24:36 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 11:05:58 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,60 +15,53 @@
 
 #include <iostream>
 
-/*
-**   Represents a fixed-point number with 8 fractional bits.
-** Private attributes:
-**   - _fixedPointValue:
-**       Stores the raw fixed-point value as an integer.
-**   - static const int _fractionalBits = 8:
-**       Constant number of fractional bits used for the
-**       fixed-point representation. Declared static so
-**       that all instances of Fixed share the same value.
-*/
-class Fixed {
+class	Fixed {
 
 	private:
 		int					_fixedPointValue;
 		static const int	_fractionalBits = 8;
 
 	public:
+	//OCF
 		Fixed();
-		Fixed(Fixed const &other);
-		Fixed	&operator=(Fixed const &other);
+		Fixed(Fixed const& other);
+		Fixed	&operator=(Fixed const& other);
 		~Fixed();
-
+	//Parameterized constructors
 		Fixed(int const intValue);
 		Fixed(float const floatValue);
-
+	//Accessors
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
-
+	//Convertion Methods
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
+	//Comparison operators
 		bool	operator>(Fixed const &other) const;
 		bool	operator<(Fixed const &other) const;
 		bool	operator>=(Fixed const &other) const;
 		bool	operator<=(Fixed const &other) const;
 		bool	operator==(Fixed const &other) const;
 		bool	operator!=(Fixed const &other) const;
-
+	//Arithmetic operators, return new Fixed object
 		Fixed	operator+(Fixed const &other) const;
 		Fixed	operator-(Fixed const &other) const;
 		Fixed	operator*(Fixed const &other) const;
 		Fixed	operator/(Fixed const &other) const;
-
-		Fixed	&operator++(void);
-		Fixed	operator++(int);
-		Fixed	&operator--(void);
+	//Increment and decrement operators
+		Fixed&	operator++(void); //++a
+		Fixed	operator++(int); //a++
+		Fixed&	operator--(void); 
 		Fixed	operator--(int);
-
-		static Fixed		&min(Fixed &a, Fixed &b);
-		static Fixed const	&min(Fixed const &a, Fixed const &b);
-		static Fixed		&max(Fixed &a, Fixed &b);
-		static Fixed const	&max(Fixed const &a, Fixed const &b);
+	//Static member functions for min/max comparison
+		static Fixed&			min(Fixed &a, Fixed &b);
+		static Fixed const&		min(Fixed const &a, Fixed const &b);
+		static Fixed&			max(Fixed &a, Fixed &b);
+		static Fixed const&		max(Fixed const &a, Fixed const &b);
 };
 
+//Stream insertion operator overload. allow printing Fixed objects with std::cout
 std::ostream	&operator<<(std::ostream& out, Fixed const &fixed);
 
 #endif

@@ -14,7 +14,9 @@ NAME		= ProgramEx02
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Iincludes
 
-SRC			= src/Fixed.cpp src/main.cpp
+SRC			= src/Fixed.cpp \
+				src/main.cpp \
+				src/OverloadOperators.cpp
 
 OBJ_DIR		= obj
 OBJS		= $(patsubst src/%.cpp,$(OBJ_DIR)/%.o,$(SRC))

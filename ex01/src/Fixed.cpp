@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:55:52 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/22 09:40:34 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 10:54:38 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ Fixed& Fixed::operator=(const Fixed &other) {
 	return (*this);
 }
 
-/* Initializes a Fixed object from a standard integer value.
-**   - Converts intValue to fixed-point format by shifting
-**     it left by _fractionalBits bits (multiplying by 2^_fractionalBits).
+/*     Initializes a Fixed object from a standard integer value.
+     - Converts intValue to fixed-point format by shifting
+       it left by _fractionalBits bits (multiplying by 2^_fractionalBits).
 */
 Fixed::Fixed(int intValue) {
 	std::cout << "Int constructor called" << std::endl;
@@ -44,11 +44,11 @@ Fixed::Fixed(int intValue) {
 	this->_fixedPointValue = result;
 }
 
-/* Initializes a Fixed object from a floating-point value.
-**   - Multiplies floatValue by 2^_fractionalBits to scale it
-**     into fixed-point form.
-**   - Uses roundf() to round the result to the nearest integer
-**     for accurate representation.
+/*     Initializes a Fixed object from a floating-point value.
+     - Multiplies floatValue by 2^_fractionalBits to scale it
+       into fixed-point form.
+     - Uses roundf() to round the result to the nearest integer
+       for accurate representation.
 */
 Fixed::Fixed(float floatValue) {
 	std::cout << "Float constructor called" << std::endl;
@@ -70,9 +70,10 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 /*
-** Converts the internal fixed-point value to a floating-point number.
-**   - Divides _fixedPointValue by 2^_fractionalBits to restore the
-**     original floating-point scale.*/
+       Converts the internal fixed-point value to a floating-point number.
+      - Divides _fixedPointValue by 2^_fractionalBits to restore the
+        original floating-point scale.
+*/
 float	Fixed::toFloat(void) const {
 	float	result;
 
@@ -81,10 +82,11 @@ float	Fixed::toFloat(void) const {
 }
 
 /*
-** Converts the internal fixed-point value to an integer by
-** discarding the fractional part.
-**   - Right-shifts _fixedPointValue by _fractionalBits bits,
-**     dividing by 2^_fractionalBits.*/
+    Converts the internal fixed-point value to an integer by
+    discarding the fractional part.
+     - Right-shifts _fixedPointValue by _fractionalBits bits,
+       dividing by 2^_fractionalBits.
+*/
 int	Fixed::toInt(void) const {
 	int	result;
 
@@ -93,12 +95,12 @@ int	Fixed::toInt(void) const {
 }
 
 /*
-** operator<< (overload):
-** Enables direct streaming of a Fixed object to an output stream.
-**
-** Parameters:
-**   - out: reference to the target std::ostream.
-**   - fixedValue: const reference to the Fixed object to print.*/
+   operator<< (overload):
+   Enables direct streaming of a Fixed object to an output stream.
+ 
+   Parameters:
+     - out: reference to the target std::ostream.
+     - fixedValue: const reference to the Fixed object to print.*/
 std::ostream&	operator<<(std::ostream &out, const Fixed &fixedValue) {
 	out << fixedValue.toFloat();
 	return (out);

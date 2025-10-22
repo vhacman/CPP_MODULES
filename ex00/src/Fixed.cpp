@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vhacman <vhacman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vhacman <vhacman@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 13:55:52 by vhacman           #+#    #+#             */
-/*   Updated: 2025/10/22 09:34:23 by vhacman          ###   ########.fr       */
+/*   Updated: 2025/10/22 10:44:55 by vhacman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ Fixed::~Fixed() {
 }
 
 /*
-** Copy assignment operator. Assigns the value from another Fixed
-** instance to the current one, checking for self-assignment.
-** - Uses getRawBits() to retrieve the raw value from 'other'.
-** - Returns a reference to *this to allow chain assignment.
-** - Prints a message each time it is called.*/
-Fixed& Fixed::operator=(const Fixed &other) {
+   Copy assignment operator. Assigns the value from another Fixed
+   instance to the current one, checking for self-assignment.
+   - Uses getRawBits() to retrieve the raw value from 'other'.
+   - Returns a reference to *this to allow chain assignment.
+   - Prints a message each time it is called.
+*/
+Fixed&	Fixed::operator=(const Fixed &other) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_fixedPointValue = other.getRawBits();
@@ -51,14 +52,16 @@ Fixed& Fixed::operator=(const Fixed &other) {
 }
 
 /* Returns the current raw fixed-point value (_fixedPointValue).
-** Also prints a message when called.*/
+   Also prints a message when called.
+*/
 int	Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this-> _fixedPointValue); // this-> oggetto in questione
 }
 
 /*
-** Sets the internal fixed-point value to 'raw'.*/
+   Sets the internal fixed-point value to 'raw'.
+*/
 void	Fixed::setRawBits(int const raw) {
 	this->_fixedPointValue = raw;
 }

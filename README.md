@@ -1,4 +1,4 @@
-![Score](https://img.shields.io/badge/Score-/100-brightgreen?style=for-the-badge)
+![Score](https://img.shields.io/badge/Score-100/100-brightgreen?style=for-the-badge)
 [![42 Project](https://img.shields.io/badge/42%20Project-CPP02-blue?style=for-the-badge&logo=42)](https://github.com/vhacman/CPP01)
 [![C++ Language](https://img.shields.io/badge/Made%20with-C++-00599C?style=for-the-badge&logo=c++)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![Memory Leak Free](https://img.shields.io/badge/Valgrind-Leaks%20Free-success?style=for-the-badge)](https://valgrind.org/)

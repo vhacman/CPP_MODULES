@@ -157,10 +157,6 @@ make
 ### Memory Management
 - [Valgrind Documentation](https://valgrind.org/docs/manual/quick-start.html)
 
-### 42 School
-- [42 Network](https://www.42network.org/)
-- [42 Curriculum](https://meta.stackoverflow.com/questions/251597/are-questions-about-exercises-on-42-school-off-topic)
-
 
 ## Author
 

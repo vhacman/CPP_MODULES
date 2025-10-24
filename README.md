@@ -5,7 +5,7 @@
 
 # CPP Modules
 
-A comprehensive collection of C++ exercises from 42 School's curriculum, covering fundamental to advanced C++ programming concepts. This repository contains implementations for modules 00-02, focusing on object-oriented programming principles, memory management, and C++98 standard compliance.
+A comprehensive collection of C++ exercises from 42 School's curriculum, covering fundamental to advanced C++ programming concepts. 
 
 ## Table of Contents
 
@@ -95,14 +95,6 @@ make
 - **ex01 - PhoneBook:** Interactive phonebook with classes, encapsulation, and array management
 - **ex02 - Account:** Class implementation with static members and state management
 
-**Key Concepts:**
-- Basic C++ syntax and structure
-- Classes and member functions
-- Encapsulation and access modifiers
-- Static members and methods
-- Input/output streams
-- Command-line arguments
-
 [Detailed Module 00 README](cpp00/README.md)
 
 ### CPP Module 01
@@ -118,15 +110,6 @@ make
 - **ex05 - Harl 2.0:** Pointers to member functions
 - **ex06 - Harl Filter:** Switch statements and filtering
 
-**Key Concepts:**
-- Stack vs heap memory
-- `new` and `delete` operators
-- References and their usage
-- Pointers to member functions
-- File streams (ifstream, ofstream)
-- Switch statements
-- Memory management best practices
-
 [Detailed Module 01 README](cpp01/README.md)
 
 ### CPP Module 02
@@ -138,17 +121,6 @@ make
 - **ex01 - Fixed with Conversions:** Type conversions and constructors
 - **ex02 - Operator Overloading:** Comparison and arithmetic operators
 - **ex03 - BSP:** Practical application with point-in-triangle algorithm
-
-**Key Concepts:**
-- Orthodox Canonical Form (OCF)
-  - Default constructor
-  - Copy constructor
-  - Copy assignment operator
-  - Destructor
-- Operator overloading (arithmetic, comparison, increment/decrement)
-- Fixed-point arithmetic
-- Type conversions (int, float)
-- Insertion operator for streams
 
 [Detailed Module 02 README](cpp02/README.md)
 
@@ -189,17 +161,6 @@ make
 - [42 Network](https://www.42network.org/)
 - [42 Curriculum](https://meta.stackoverflow.com/questions/251597/are-questions-about-exercises-on-42-school-off-topic)
 
-## Testing
-
-Each module includes test programs. To verify your implementation:
-
-1. Compile the project
-2. Run the executable
-3. Check for memory leaks using Valgrind:
-
-```bash
-valgrind --leak-check=full ./executable_name
-```
 
 ## Author
 
